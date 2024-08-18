@@ -7,6 +7,7 @@ enum layers {
     NUM,
     SYM,
     NAV,
+    CREATIVE,
     GAME
 };
 
@@ -28,13 +29,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_EQL,  KC_QUOT, KC_DQUO, KC_MINUS,   KC_BSLS, KC_LBRC, KC_RBRC, KC_PIPE, KC_TRNS,
         KC_TILD, KC_GRV,  KC_NO,   KC_NO,   KC_EXLM,    KC_PLUS, KC_LPRN, KC_RPRN, KC_NO,   TO(NAV),
-                                TO(BASE),   KC_LSFT,    KC_TRNS, TO(GAME)
+                                TO(BASE),   KC_LSFT,    KC_TRNS, TO(CREATIVE)
     ),
 	[NAV] = LAYOUT_split_3x5_2(
         KC_NO,   KC_NO,   KC_UP,   KC_NO,    KC_VOLU,   KC_NO,   KC_BTN1, KC_WH_U, KC_BTN2, KC_NO,
         KC_NO,   KC_LEFT, KC_DOWN, KC_RIGHT, KC_VOLD,   OSM(MOD_LGUI),   KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,
         QK_BOOT, KC_NO,   KC_NO,   KC_NO,    KC_NO,     OSM(MOD_LSFT),   KC_WH_L, KC_WH_D, KC_WH_R, TO(GAME),
                                    TO(BASE), KC_NO,     OSM(MOD_LCTL), TO(NUM)
+    ),
+	[CREATIVE] = LAYOUT_split_3x5_2(
+        KC_Q,    KC_W, KC_W, KC_R, KC_T,   KC_NO, KC_NO,   US_UACU, KC_NO,   KC_NO,
+        KC_LSFT, KC_A, KC_Z, KC_LALT, KC_G,   KC_NO, US_NTIL, US_EACU, US_IACU, US_OACU,
+        KC_LCTL, KC_X, KC_C, KC_LSFT, KC_B,   KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                     TO(BASE), KC_LCTL,   KC_TRNS, KC_NO
     ),
 	[GAME] = LAYOUT_split_3x5_2(
         KC_Q,    KC_W, KC_W, KC_R, KC_T,   KC_NO, KC_NO,   US_UACU, KC_NO,   KC_NO,
