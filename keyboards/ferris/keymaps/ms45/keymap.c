@@ -11,19 +11,26 @@ enum layers {
     GAME
 };
 
+const uint16_t PROGMEM esc_combo[] = {LT(NAV, KC_BSPC), RALT_T(KC_TAB), COMBO_END};
+const uint16_t PROGMEM del_combo[] = {LT(SYM, KC_ENT), LT(NUM, KC_SPACE), COMBO_END};
+combo_t key_combos[] = {
+    COMBO(esc_combo, KC_ESC),
+    COMBO(del_combo, KC_DEL),
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[BASE] = LAYOUT_split_3x5_2(
-          KC_Q, KC_W, KC_F, KC_P, KC_B,   KC_J, KC_L, KC_U,    KC_Y,   KC_SCLN,
-          KC_A, KC_R, KC_S, KC_T, KC_G,   KC_M, KC_N, KC_E,    KC_I,   KC_O,
-          KC_X, KC_C, KC_D, KC_V, KC_Z,   KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH,
-       RALT_T(KC_SPACE), OSM(MOD_LSFT),   KC_LCTL, TO(NUM)
+          KC_Q, KC_W, KC_F,         KC_P,         KC_B,   KC_J,   KC_L, KC_U,    KC_Y,   KC_SCLN,
+          LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_G,   KC_M, LSFT_T(KC_N), LCTL_T(KC_E), LALT_T(KC_I),   LGUI_T(KC_O),
+          KC_X, KC_C, KC_D,         KC_V,         KC_Z,   KC_K,   KC_H, KC_COMM, KC_DOT, KC_SLSH,
+                               LT(NAV, KC_BSPC), RALT_T(KC_TAB),   LT(SYM, KC_ENT), LT(NUM, KC_SPACE)
     ),
 	[NUM] = LAYOUT_split_3x5_2(
 
-        KC_ESC,  KC_AT,   KC_HASH, KC_DLR,  KC_PERC,    KC_CIRC,       KC_AMPR, KC_ASTR, KC_NO,   KC_BSPC,
-        KC_TAB,  KC_2,    KC_3,    KC_4,    KC_5,       KC_6,          KC_7,    KC_8,    KC_9,    KC_ENT,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PDOT,    OSM(MOD_LALT), KC_NO,   KC_TRNS, KC_TRNS, TO(SYM),
-                             TO(BASE), LSFT_T(KC_1),    LCTL_T(KC_0), TO(NAV)
+        KC_ESC, KC_7, KC_8, KC_9, KC_MINUS,    KC_NO,       KC_NO, KC_NO, KC_NO,   KC_NO,
+        KC_NO, KC_4, KC_5, KC_6, KC_EQL,    KC_NO, KC_LSFT, KC_LCTL,  KC_LALT, KC_LGUI,
+        KC_NO, KC_1, KC_2, KC_3, KC_NO,    KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO,
+                             KC_0, KC_TRNS,    KC_TRNS, KC_TRNS
     ),
 	[SYM] = LAYOUT_split_3x5_2(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -32,9 +39,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 TO(BASE),   KC_LSFT,    KC_TRNS, TO(CREATIVE)
     ),
 	[NAV] = LAYOUT_split_3x5_2(
-        KC_NO,   KC_NO,   KC_UP,   KC_NO,    KC_VOLU,   KC_NO,   KC_BTN1, KC_WH_U, KC_BTN2, KC_NO,
-        KC_NO,   KC_LEFT, KC_DOWN, KC_RIGHT, KC_VOLD,   OSM(MOD_LGUI),   KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,
-        QK_BOOT, KC_NO,   KC_NO,   KC_NO,    KC_NO,     OSM(MOD_LSFT),   KC_WH_L, KC_WH_D, KC_WH_R, TO(GAME),
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  KC_NO,   KC_NO,   KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
+        QK_BOOT, KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO,
                                    TO(BASE), KC_NO,     OSM(MOD_LCTL), TO(NUM)
     ),
 	[CREATIVE] = LAYOUT_split_3x5_2(
@@ -59,8 +66,4 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 
 };
 #endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
-
-
-
-
 
