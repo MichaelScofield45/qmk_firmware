@@ -39,19 +39,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LBRC,  KC_7,     KC_8,     KC_9,     KC_RBRC,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,
         KC_MINUS, KC_4,     KC_5,     KC_6,     KC_EQL,    XXXXXXX, KC_LSFT,  KC_LCTL,  KC_LALT,   KC_LGUI,
         KC_GRAVE, KC_1,     KC_2,     KC_3,     KC_BSLS,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,
-                                       _______, KC_QUOT,   _______, _______
+                                      KC_0,     KC_QUOT,   _______, _______
     ),
 	[SYM] = LAYOUT_split_3x5_2(
         KC_LCBR,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RCBR,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         KC_UNDS,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_PLUS,   XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
         KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_PIPE,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                                       KC_RPRN, KC_DQUO,   _______, _______
+                                      KC_RPRN,  KC_DQUO,   _______, _______
     ),
 	[NAV] = LAYOUT_split_3x5_2(
         XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX,   XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,
         QK_BOOT,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-                                       _______, _______,   _______, _______
+                                      _______,  _______,   _______, _______
     ),
 	[FUN] = LAYOUT_split_3x5_2(
         XXXXXXX,  KC_F7,    KC_F8,    KC_F9,    KC_F10,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
