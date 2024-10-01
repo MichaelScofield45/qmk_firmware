@@ -48,9 +48,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       KC_RPRN,  KC_DQUO,   _______, _______
     ),
 	[NAV] = LAYOUT_split_3x5_2(
-        XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX,   XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,
-        QK_BOOT,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX, KC_PSTE, KC_COPY, KC_CUT,  KC_UNDO,
+        KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX,   KC_CAPS, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,
+        QK_BOOT,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,
                                       _______,  _______,   _______, _______
     ),
 	[FUN] = LAYOUT_split_3x5_2(
