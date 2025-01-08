@@ -18,7 +18,7 @@ const uint16_t PROGMEM esc_combo[] = {LT(NAV, KC_BSPC), RALT_T(KC_TAB), COMBO_EN
 const uint16_t PROGMEM del_combo[] = {LT(SYM, KC_ENT), LT(NUM, KC_SPACE), COMBO_END};
 const uint16_t PROGMEM fun_combo[] = {LT(NAV, KC_BSPC), LT(NUM, KC_SPACE), COMBO_END};
 const uint16_t PROGMEM game_combo[] = {LT(NAV, KC_BSPC), RALT_T(KC_TAB), LT(SYM, KC_ENT), LT(NUM, KC_SPACE), COMBO_END};
-const uint16_t PROGMEM ungame_combo[] = {KC_SPACE, LALT_T(KC_F), COMBO_END};
+const uint16_t PROGMEM ungame_combo[] = {KC_COMM, LALT_T(KC_F), COMBO_END};
 combo_t key_combos[] = {
     COMBO(esc_combo, KC_ESC),
     COMBO(del_combo, KC_DEL),
@@ -60,9 +60,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
     ),
 	[GAME] = LAYOUT_split_3x5_2(
-        KC_G,     KC_Q,     KC_W,     KC_E,     KC_R,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        KC_LSFT,  KC_A,     KC_S,     KC_D,     KC_F,      XXXXXXX, KC_J,    XXXXXXX, XXXXXXX, XXXXXXX,
-        KC_LCTL,  KC_X,     XXXXXXX,  KC_C,     KC_B,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_G,     KC_Q,     KC_W,     KC_E,     KC_R,      XXXXXXX, KC_I,    KC_O,    KC_P,    KC_COMM,
+        KC_LSFT,  KC_A,     KC_S,     KC_D,     KC_F,      XXXXXXX, KC_J,    XXXXXXX, XXXXXXX, KC_TAB,
+        KC_LCTL,  KC_X,     XXXXXXX,  KC_C,     KC_Z,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                               KC_SPACE, LALT_T(KC_F),      XXXXXXX, XXXXXXX
     ),
 	[6] = LAYOUT_split_3x5_2(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX),
