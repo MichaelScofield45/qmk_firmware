@@ -12,7 +12,8 @@ enum layers {
     NAV,
     FUN,
     GAME,
-    MEDIA
+    MEDIA,
+    NOTE
 };
 
 const uint16_t PROGMEM esc_combo[] = {LT(NAV, KC_BSPC), RALT_T(KC_TAB), COMBO_END};
@@ -21,6 +22,7 @@ const uint16_t PROGMEM fun_combo[] = {LT(NAV, KC_BSPC), LT(NUM, KC_SPACE), COMBO
 const uint16_t PROGMEM media_combo[] = {RALT_T(KC_TAB), LT(SYM, KC_ENT), COMBO_END};
 const uint16_t PROGMEM game_combo[] = {LT(NAV, KC_BSPC), RALT_T(KC_TAB), LT(SYM, KC_ENT), LT(NUM, KC_SPACE), COMBO_END};
 const uint16_t PROGMEM ungame_combo[] = {KC_COMM, KC_P, COMBO_END};
+const uint16_t PROGMEM note_combo[] = {LT(NAV, KC_BSPC), LT(SYM, KC_ENT), COMBO_END};
 combo_t key_combos[] = {
     COMBO(esc_combo, KC_ESC),
     COMBO(del_combo, KC_DEL),
@@ -28,6 +30,40 @@ combo_t key_combos[] = {
     COMBO(media_combo, MO(MEDIA)),
     COMBO(game_combo, TG(GAME)),
     COMBO(ungame_combo, TG(GAME)),
+    COMBO(note_combo, TG(NOTE)),
+};
+
+enum custom_keycodes {
+    XOUR_PEN = SAFE_RANGE,
+    XOUR_REC,
+    XOUR_FRE,
+    XOUR_SAV
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode) {
+        case XOUR_PEN:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LCTL(SS_LSFT("p")));
+            }
+            break;
+        case XOUR_REC:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LCTL(SS_LSFT("r")));
+            }
+            break;
+        case XOUR_FRE:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LCTL(SS_LSFT("g")));
+            }
+            break;
+        case XOUR_SAV:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LCTL("s"));
+            }
+            break;
+    }
+    return true;
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -74,7 +110,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                        XXXXXXX, XXXXXXX,           XXXXXXX, XXXXXXX
     ),
-	[7] = LAYOUT_split_3x5_2(XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX),
+	[NOTE] = LAYOUT_split_3x5_2(
+        TG(NOTE), XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_DEL,   XOUR_FRE, XOUR_REC, XOUR_PEN, XXXXXXX,           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                                      XOUR_SAV, XXXXXXX,           XXXXXXX, XXXXXXX
+    ),
 };
 
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
@@ -82,4 +123,3 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 
 };
 #endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
-
